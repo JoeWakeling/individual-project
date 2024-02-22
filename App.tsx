@@ -25,7 +25,6 @@ const AppTab = createBottomTabNavigator<AppTabParamList>();
 export default function App() {
     // State for authentication status
     const [user, setUser] = useState<User | null>(null);
-
     // Hook to listen for authentication state changes
     useEffect(() => {
         return auth.onAuthStateChanged((user) => {
