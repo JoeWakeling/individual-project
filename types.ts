@@ -1,3 +1,12 @@
+interface Investment {
+    type: string;
+    name: string;
+    instruments: string[];
+    value: number;
+    dailyChange: number;
+    dailyChangePercent: number;
+}
+
 interface InstrumentSearchQuote {
     symbol: string;
     shortname: string;

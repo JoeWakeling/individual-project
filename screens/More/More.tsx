@@ -1,4 +1,4 @@
-import {View, Text, Button, Image, Pressable} from "react-native";
+import {View, Text, Image, Pressable} from "react-native";
 import React from "react";
 import {getAuth, signOut as signOutFirebase} from "firebase/auth";
 
@@ -16,6 +16,16 @@ const handleSignOut = () => {
 }
 
 export default function More() {
+    if (!auth.currentUser) {
+        return (
+            <View className="h-full bg-gray-300 py-1">
+                <View className="bg-white mx-2 my-1 p-4 rounded">
+                    <Text className="text-lg font-bold" >Not signed in</Text>
+                </View>
+            </View>
+        );
+    }
+
     return (
         <View className="h-full bg-gray-300 py-1">
             <View className="bg-white mx-2 my-1 p-4 rounded">

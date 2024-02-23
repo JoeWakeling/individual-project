@@ -57,7 +57,7 @@ export default function Markets() {
                 data={searchResults}
                 renderItem={({ item }) => <InstrumentSearchResultCard {...item} />}
                 keyExtractor={(item, index) => index.toString()}
-                className="h-full bg-gray-300 py-1"
+                className="h-full bg-gray-100 py-1"
             />
         </View>
     );
@@ -70,9 +70,6 @@ async function fetchSearchQuotes(searchQuery: string) {
         // Fetch quotes matching the search query from API
         const response: Response = await fetch(`https://query1.finance.yahoo.com/v1/finance/search?q=${encodeURIComponent(searchQuery)}`);
         const data = await response.json();
-        console.log("Response:", data);
-        console.log("Found quotes:", data.quotes);
-
         return data.quotes;
 
     } catch (error) {
@@ -123,7 +120,6 @@ async function fetchPriceQuotes(symbols: string[]) {
             }
         });
         const data = await quotesResponse.json();
-
         return data.quoteResponse.result;
 
     } catch (error) {
