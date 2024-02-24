@@ -7,7 +7,7 @@ interface Investment {
     dailyChangePercent: number;
 }
 
-interface InstrumentSearchQuote {
+interface InstrumentBestMatch {
     symbol: string;
     shortname: string;
     longname: string;
@@ -17,7 +17,7 @@ interface InstrumentSearchQuote {
 
 }
 
-interface InstrumentPriceQuote {
+interface InstrumentQuote {
     symbol: string;
     regularMarketPrice: number;
     regularMarketChange: number;
@@ -27,13 +27,12 @@ interface InstrumentPriceQuote {
 
 interface InstrumentSearchResult {
     symbol: string;
-    shortname: string;
-    longname: string;
-    exchDisp: string;
-    quoteType: string;
+    name: string
+    exchange: string;
+    type: string;
     industry: string;
-    regularMarketPrice: number;
-    regularMarketChange: number;
-    regularMarketChangePercent: number;
+    price: number;
+    change: number;
+    changePercent: number;
     currency: string;
 }
