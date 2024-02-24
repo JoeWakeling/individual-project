@@ -1,4 +1,4 @@
-import {Text, View} from "react-native";
+import {Text, TouchableOpacity, View} from "react-native";
 
 const getReadableResultType = (resultType: string) => {
     switch (resultType) {
@@ -22,7 +22,7 @@ const getReadableResultType = (resultType: string) => {
 
 export default function InstrumentSearchResultCard(searchResult: InstrumentSearchResult) {
     return (
-        <View className="bg-white mx-2 my-1 p-2 rounded-xl shadow-md">
+        <TouchableOpacity className="bg-white mx-2 my-1 p-2 rounded-xl shadow-md">
             <View className="flex flex-row items-center relative gap-1">
                 <View className="bg-green-700 rounded-lg p-1">
                     <Text className="text-white">{getReadableResultType(searchResult.type)}</Text>
@@ -53,7 +53,6 @@ export default function InstrumentSearchResultCard(searchResult: InstrumentSearc
                     {searchResult.change === 0 && <Text className="text-black">0.00 0.00%</Text>}
                 </View>
             </View>
-
-        </View>
+        </TouchableOpacity>
     );
 };

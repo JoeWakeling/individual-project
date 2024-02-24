@@ -1,4 +1,4 @@
-interface Investment {
+type Investment = {
     type: string;
     name: string;
     instruments: string[];
@@ -7,7 +7,7 @@ interface Investment {
     dailyChangePercent: number;
 }
 
-interface InstrumentBestMatch {
+type InstrumentBestMatch = {
     symbol: string;
     shortname: string;
     longname: string;
@@ -17,7 +17,7 @@ interface InstrumentBestMatch {
 
 }
 
-interface InstrumentQuote {
+type InstrumentQuote = {
     symbol: string;
     regularMarketPrice: number;
     regularMarketChange: number;
@@ -25,7 +25,7 @@ interface InstrumentQuote {
     currency: string;
 }
 
-interface InstrumentSearchResult {
+type InstrumentSearchResult = {
     symbol: string;
     name: string
     exchange: string;

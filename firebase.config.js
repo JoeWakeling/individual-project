@@ -2,9 +2,6 @@ import { initializeApp } from "@firebase/app";
 import { initializeAuth, getReactNativePersistence} from "firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// Initialise async storage for Authentication persistence
-
-// Todo: Change to non-public secrets storage (currently sent to bundle in plaintext)
 // Firebase configuration
 const firebaseConfig = {
     apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
