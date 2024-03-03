@@ -1,7 +1,5 @@
-import {View, Text, Dimensions} from "react-native";
+import {View, Text} from "react-native";
 import PieChart from "react-native-pie-chart";
-
-const screenWidth = Dimensions.get("window").width
 
 export default function Insights() {
     const widthAndHeight = 125
@@ -22,7 +20,7 @@ export default function Insights() {
                     />
                     <View className="flex flex-col pl-2 justify-center gap-1">
                         {getData().map((data) => (
-                            <View className="flex flex-row items-center gap-2">
+                            <View className="flex flex-row items-center gap-2" key={data.key}>
                                 <View className="w-4 h-4 rounded-full" style={{backgroundColor: data.colour}} />
                                 <Text>{data.name}</Text>
                             </View>
