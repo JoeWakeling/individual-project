@@ -1,6 +1,5 @@
-import {View, Text, FlatList, Pressable, TouchableOpacity} from "react-native";
+import {View, Text, FlatList, TouchableOpacity} from "react-native";
 import {useState} from "react";
-import InstrumentSearchResultCard from "../Markets/InstrumentSearchResultCard";
 import InvestmentCard from "./InvestmentCard";
 import {Investment} from "../../types";
 

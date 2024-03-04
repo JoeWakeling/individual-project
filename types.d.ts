@@ -48,7 +48,7 @@ type Investment = {
     value: number;
     dailyChange: number;
     dailyChangePercent: number;
-    subInvestments: Investment[];
+    subInvestments?: Investment[];
 }
 
 type InstrumentBestMatchData = {
