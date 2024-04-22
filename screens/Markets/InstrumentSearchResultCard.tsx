@@ -1,6 +1,8 @@
 import {Text, TouchableOpacity, View} from "react-native";
 import { StackNavigationProp} from "@react-navigation/stack";
 import {useNavigation} from "@react-navigation/native";
+import getTailwindColourFromInvestmentType from "../../utilities/utilities";
+import {Instrument, MarketsStackParamList} from "../../types";
 
 export default function InstrumentSearchResultCard(instrument: Instrument) {
     const navigation = useNavigation<StackNavigationProp<MarketsStackParamList>>();
@@ -12,7 +14,7 @@ export default function InstrumentSearchResultCard(instrument: Instrument) {
     return (
         <TouchableOpacity className="bg-white mx-2 my-1 p-2 rounded-xl shadow-md" onPress={handleNavigation}>
             <View className="flex flex-row items-center relative gap-1" >
-                <View className="bg-green-700 rounded-lg p-1">
+                <View className={"rounded-lg p-1 " + getTailwindColourFromInvestmentType(getReadableResultType(instrument.type))}>
                     <Text className="text-white">{getReadableResultType(instrument.type)}</Text>
                 </View>
 

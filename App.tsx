@@ -18,6 +18,7 @@ import Markets from "./screens/Markets/Markets";
 import More from "./screens/More/More";
 import InstrumentDetails from "./screens/Markets/InstrumentDetails/InstrumentDetails";
 
+
 const AppTabs = createBottomTabNavigator();
 const ScreenStack = createNativeStackNavigator();
 
@@ -98,7 +99,7 @@ const getTabBarOptions = (route: any): BottomTabNavigationOptions => {
             return <Text className="text-xs">{route.name.replace(/Stack$/, "")}</Text>;
         },
         headerShown: false,
-        tabBarActiveTintColor: "blue",
+        tabBarActiveTintColor: "green",
         tabBarInactiveTintColor: "gray",
     };
 };

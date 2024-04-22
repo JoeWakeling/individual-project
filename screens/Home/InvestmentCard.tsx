@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Text, View, TouchableOpacity, Image } from "react-native";
 import { Investment } from "../../types";
 import { Ionicons } from "@expo/vector-icons";
+import getTailwindColourFromInvestmentType from "../../utilities/utilities";
 
 export default function InvestmentCard({ investment }: { investment: Investment }) {
     const [expanded, setExpanded] = useState(false);
@@ -13,12 +14,13 @@ export default function InvestmentCard({ investment }: { investment: Investment 
             // Open investment details screen
         }
     };
+    console.log(investment.type)
 
     return (
         <TouchableOpacity onPress={handlePressCard}>
             <View className="bg-white mx-2 my-1 p-2 rounded-xl shadow-md">
                 <View className="flex flex-row items-center relative gap-1">
-                    <View className="bg-green-700 rounded-lg p-1">
+                    <View className={" rounded-lg p-1 " + getTailwindColourFromInvestmentType(investment.type)}>
                         <Text className="text-white">{investment.type}</Text>
                     </View>
                     {/* Render chevron to indicate ability to expand card if sub-investments available */}
@@ -67,8 +69,8 @@ export default function InvestmentCard({ investment }: { investment: Investment 
                         <View className="flex items-end">
                             <Text className="text-lg">£{subInvestment.value.toLocaleString()}</Text>
                             {subInvestment.dailyChange > 0 && <Text className="text-green-500">+{subInvestment.dailyChange.toFixed(2)} +{subInvestment.dailyChangePercent.toFixed(2)}%</Text>}
-                            {subInvestment.dailyChange < 0 && <Text className="text-red-500">{subInvestment.dailyChange.toFixed(2)} {subInvestment.dailyChangePercent.toFixed(2)}%</Text>}
-                            {subInvestment.dailyChange === 0 && <Text className="text-black">0.00 0.00%</Text>}
+                            {subInvestment.dailyChange < 0 && <Text className="text-red-500">{(subInvestment.dailyChange.toFixed(2))} {subInvestment.dailyChangePercent.toFixed(2)}%</Text>}
+                            {subInvestment.dailyChange === 0 && <Text className="text-black">£0.00 0.00%</Text>}
                         </View>
 
                     </View>

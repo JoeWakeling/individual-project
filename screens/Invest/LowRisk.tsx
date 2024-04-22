@@ -1,16 +1,21 @@
 import {Text, View} from "react-native";
+import getTailwindColourFromInvestmentType from "../../utilities/utilities";
 
 export default function LowRisk() {
     return (
         <View className="w-full px-6 pt-1">
             <View className="flex bg-white p-2 rounded-lg shadow mb-3">
-                <View className="flex-row gap-1">
-                    <View className="bg-green-700 items-center rounded-lg p-1 mb-1">
-                        <Text className="text-white">Easy-access savings account</Text>
+                <View className="flex-row items-center justify-between">
+                    <View className="flex-row gap-1">
+                        <View
+                            className={"items-center rounded-lg p-1 mb-1 " + getTailwindColourFromInvestmentType("Easy-access savings account")}>
+                            <Text className="text-white">Easy-access savings account</Text>
+                        </View>
+                        <View className="bg-gray-600 items-center rounded-lg p-1 mb-1">
+                            <Text className="text-white">Online</Text>
+                        </View>
                     </View>
-                    <View className="bg-gray-600 items-center rounded-lg p-1 mb-1">
-                        <Text className="text-white">Online</Text>
-                    </View>
+                    <Text className="text-2xl">🇬🇧</Text>
                 </View>
                 <View className="flex-row gap-1 mb-1">
                     <Text className="font-bold">Provider:</Text>
@@ -32,16 +37,20 @@ export default function LowRisk() {
             </View>
 
             <View className="flex bg-white p-2 rounded-lg shadow mb-3">
-                <View className="flex-row gap-1">
-                    <View className="bg-green-700 items-center rounded-lg p-1 mb-1">
-                        <Text className="text-white">Easy-access savings account</Text>
+                <View className="flex-row items-center justify-between">
+                    <View className="flex-row gap-1">
+                        <View
+                            className={"items-center rounded-lg p-1 mb-1 " + getTailwindColourFromInvestmentType("Easy-access savings account")}>
+                            <Text className="text-white">Easy-access savings account</Text>
+                        </View>
+                        <View className="bg-gray-600 items-center rounded-lg p-1 mb-1">
+                            <Text className="text-white">Online</Text>
+                        </View>
+                        <View className="bg-gray-600 items-center rounded-lg p-1 mb-1">
+                            <Text className="text-white">App</Text>
+                        </View>
                     </View>
-                    <View className="bg-gray-600 items-center rounded-lg p-1 mb-1">
-                        <Text className="text-white">Online</Text>
-                    </View>
-                    <View className="bg-gray-600 items-center rounded-lg p-1 mb-1">
-                        <Text className="text-white">App</Text>
-                    </View>
+                    <Text className="text-2xl">🇬🇧</Text>
                 </View>
                 <View className="flex-row gap-1 mb-1">
                     <Text className="font-bold">Provider:</Text>
@@ -63,13 +72,17 @@ export default function LowRisk() {
             </View>
 
             <View className="flex bg-white p-2 rounded-lg shadow mb-3">
-                <View className="flex-row gap-1">
-                    <View className="bg-blue-700 items-center rounded-lg p-1 mb-1">
-                        <Text className="text-white">Fixed-term savings account</Text>
+                <View className="flex-row items-center justify-between">
+                    <View className="flex-row gap-1">
+                        <View
+                            className={"items-center rounded-lg p-1 mb-1 " + getTailwindColourFromInvestmentType("Fixed-term savings account")}>
+                            <Text className="text-white">Fixed-term savings account</Text>
+                        </View>
+                        <View className="bg-gray-600 items-center rounded-lg p-1 mb-1">
+                            <Text className="text-white">Online</Text>
+                        </View>
                     </View>
-                    <View className="bg-gray-600 items-center rounded-lg p-1 mb-1">
-                        <Text className="text-white">Online</Text>
-                    </View>
+                    <Text className="text-2xl">🇬🇧</Text>
                 </View>
                 <View className="flex-row gap-1 mb-1">
                     <Text className="font-bold">Provider:</Text>
@@ -94,13 +107,17 @@ export default function LowRisk() {
             </View>
 
             <View className="flex bg-white p-2 rounded-lg shadow mb-3">
-                <View className="flex-row gap-1">
-                    <View className="bg-blue-700 items-center rounded-lg p-1 mb-1">
-                        <Text className="text-white">Fixed-term savings account</Text>
+                <View className="flex-row items-center justify-between">
+                    <View className="flex-row gap-1">
+                        <View
+                            className={"items-center rounded-lg p-1 " + getTailwindColourFromInvestmentType("Fixed-term savings account")}>
+                            <Text className="text-white">Fixed-term savings account</Text>
+                        </View>
+                        <View className="bg-gray-600 items-center rounded-lg p-1">
+                            <Text className="text-white">App</Text>
+                        </View>
                     </View>
-                    <View className="bg-gray-600 items-center rounded-lg p-1 mb-1">
-                        <Text className="text-white">App</Text>
-                    </View>
+                    <Text className="text-2xl">🇬🇧</Text>
                 </View>
                 <View className="flex-row gap-1 mb-1">
                     <Text className="font-bold">Provider:</Text>

@@ -40,7 +40,15 @@ export default function More() {
                     </Pressable>
                 </View>
             </View>
-
+            <View>
+                <View className="bg-green-700"></View>
+                <View className="bg-blue-700"></View>
+                <View className="bg-pink-700"></View>
+                <View className="bg-purple-600"></View>
+                <View className="bg-emerald-600"></View>
+                <View className="bg-red-600"></View>
+                <View className="bg-gray-700"></View>
+            </View>
         </View>
     );
 }

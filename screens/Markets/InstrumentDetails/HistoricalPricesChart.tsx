@@ -1,16 +1,21 @@
 import {Text, TouchableOpacity, View} from "react-native";
 import {LineGraph} from "react-native-graph";
 import { Dimensions } from 'react-native';
-import React, {useMemo, useState} from "react";
+import React, {useState} from "react";
 import useHistoricalPrices from "./useHistoricalPrices";
-import {ActivityIndicator} from "nativewind/dist/preflight";
+import {
+    HistoricalPricesChartProps,
+    HistoricalPricesInterval,
+    HistoricalPricesPoint,
+    HistoricalPricesRange
+} from "../../../types";
 
 export default function HistoricalPricesChart({symbol}: HistoricalPricesChartProps) {
     // Initialise hook for historical prices of this symbol
-    const { historicalPrices, updateDataRange} = useHistoricalPrices(symbol);
+    const { historicalPrices, updateDataRange, min, max} = useHistoricalPrices(symbol);
 
     // State for the current range of the historical prices
-    const [currentRange, setCurrentRange] = useState("5d"); // Initialize current range state
+    const [currentRange, setCurrentRange] = useState("1d"); // Initialize current range state
 
     // Handler for buttons that change the range of the historical prices
     const handleDataRangeChange = (interval: HistoricalPricesInterval, range: HistoricalPricesRange) => {
@@ -20,54 +25,19 @@ export default function HistoricalPricesChart({symbol}: HistoricalPricesChartPro
 
     const screenWidth = Dimensions.get('window').width;
 
-    const max = useMemo(() => {
-        if (historicalPrices.length === 0) {
-            return null; // Return null if there are no historical prices
-        }
-
-        // Find the point with the maximum value among the historical prices
-        const maxPoint = historicalPrices.reduce((maxPoint: HistoricalPricesPoint, currentPoint: HistoricalPricesPoint) => {
-            return currentPoint.value > maxPoint.value ? currentPoint : maxPoint;
-        }, historicalPrices[0]);
-
-        return { date: maxPoint.date, value: maxPoint.value };
-    }, [historicalPrices]);
-
-    const min = useMemo(() => {
-        if (historicalPrices.length === 0) {
-            return null; // Return null if there are no historical prices
-        }
-
-        // Find the point with the minimum value among the historical prices
-        const minPoint = historicalPrices.reduce((minPoint: HistoricalPricesPoint, currentPoint: HistoricalPricesPoint) => {
-            return currentPoint.value < minPoint.value ? currentPoint : minPoint;
-        }, historicalPrices[0]);
-
-        return { date: minPoint.date, value: minPoint.value };
-    }, [historicalPrices]);
-
     return (
         <View className="flex bg-white">
             <View style={{height: 200}}>
-                {(historicalPrices.length === 0 || max == null || min == null) &&
-                    <View className="flex justify-center items-center w-full h-full">
-                        <ActivityIndicator />
-                    </View>
-
-
-                }
-                {!(historicalPrices.length === 0 || max == null || min == null) &&
-                    <LineGraph
-                        points={historicalPrices}
-                        color="#4484B2"
-                        animated={true}
-                        enablePanGesture={true}
-                        height={200}
-                        horizontalPadding={20}
-                        TopAxisLabel={() => <AxisLabel date={max.date} value={max.value} highestDate={historicalPrices[historicalPrices.length - 1].date} lowestDate={historicalPrices[0].date} screenWidth={screenWidth}/>}
-                        BottomAxisLabel={() => <AxisLabel date={min.date} value={min.value} highestDate={historicalPrices[historicalPrices.length - 1].date} lowestDate={historicalPrices[0].date} screenWidth={screenWidth}/>}
-                    />
-                }
+                <LineGraph
+                    points={historicalPrices}
+                    color="#4484B2"
+                    animated={true}
+                    enablePanGesture={true}
+                    height={200}
+                    horizontalPadding={20}
+                    TopAxisLabel={() => <AxisLabel date={max.date} value={max.value} highestDate={historicalPrices[historicalPrices.length - 1].date} lowestDate={historicalPrices[0].date} screenWidth={screenWidth}/>}
+                    BottomAxisLabel={() => <AxisLabel date={min.date} value={min.value} highestDate={historicalPrices[historicalPrices.length - 1].date} lowestDate={historicalPrices[0].date} screenWidth={screenWidth}/>}
+                />
             </View>
             <View className="flex flex-row justify-center">
                 <TouchableOpacity className="bg-white p-2 rounded-lg m-2"
