@@ -95,7 +95,6 @@ export default function Invest() {
             }
             throw new Error('Failed to get prediction from ML API');
         }).then(result => {
-            console.log("Prediction:", result["prediction"]);
             setRiskTolerance(result["prediction"]);
         }).catch(error => {
             console.error('Error:', error);
